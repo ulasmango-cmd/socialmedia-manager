@@ -28,15 +28,23 @@ It also ships a **read-only snapshot of real pipeline output** — 20 projects, 
 
 ![Reactor studio — landing view](screenshots/01-showroom.png)
 
+The studio, running against the real pipeline snapshot that ships with the demo:
+
+| Studio dashboard | Library |
+| :---: | :---: |
+| ![Studio dashboard](screenshots/02-studio.png) | ![Library](screenshots/03-library.png) |
+
+The Reactor showroom — the public-facing surface of the product:
+
 | Generation studio | Pricing |
 | :---: | :---: |
-| ![Generation studio](screenshots/02-generate.png) | ![Pricing](screenshots/03-pricing.png) |
+| ![Generation studio](screenshots/04-generate.png) | ![Pricing](screenshots/05-pricing.png) |
 
 **Real pipeline output.** These vertical 1080×1920 frames were rendered by the application's own FFmpeg pipeline, including generated scene art and burned-in titles:
 
 | Generated scene — anime style | Generated scene — underwater |
 | :---: | :---: |
-| ![Anime-style generated scene](screenshots/04-output-anime.jpg) | ![Underwater generated scene](screenshots/05-output-underwater.jpg) |
+| ![Anime-style generated scene](screenshots/06-output-anime.jpg) | ![Underwater generated scene](screenshots/07-output-underwater.jpg) |
 
 ---
 
