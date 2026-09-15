@@ -28,11 +28,15 @@ It is also a **showcase deployment**: it runs on a serverless platform with no p
 
 ![Reactor studio — landing view](screenshots/01-showroom.png)
 
+| Generation studio | Pricing |
+| :---: | :---: |
+| ![Generation studio](screenshots/02-generate.png) | ![Pricing](screenshots/03-pricing.png) |
+
 **Real pipeline output.** These vertical 1080×1920 frames were rendered by the application's own FFmpeg pipeline, including generated scene art and burned-in titles:
 
 | Generated scene — anime style | Generated scene — underwater |
 | :---: | :---: |
-| ![Anime-style generated scene](screenshots/02-output-anime.jpg) | ![Underwater generated scene](screenshots/03-output-underwater.jpg) |
+| ![Anime-style generated scene](screenshots/04-output-anime.jpg) | ![Underwater generated scene](screenshots/05-output-underwater.jpg) |
 
 ---
 
