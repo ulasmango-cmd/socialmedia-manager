@@ -4,7 +4,9 @@
 
 ## Live Demo
 
-Deployment is being verified. The production URL will be published here after the hosted runtime passes its smoke checks.
+[Open the live demo](https://socialmedia-manager-eight.vercel.app)
+
+The hosted demo runs in safe mock mode. External publishing credentials are not included in the public deployment.
 
 ## Overview
 
@@ -48,7 +50,7 @@ The workflow is built around explicit state transitions, per-platform publicatio
 
 ## Project Status
 
-Local production build and test suite verified. Public hosting is being configured and will be linked here once the live demo is independently smoke-tested.
+Local production build and test suite verified. The public mock-mode demo is live on Vercel; persistent production publishing infrastructure remains separate from the portfolio demo.
 
 ## Ownership
 
