@@ -18,7 +18,9 @@
 
 ### ▶ [https://socialmedia-manager-eight.vercel.app](https://socialmedia-manager-eight.vercel.app)
 
-The hosted demo runs in **safe mock mode**. No social account, credential, or signup is required: publishing adapters, OAuth flows, and the AI script provider are simulated, so the full workflow can be evaluated end to end without touching a live platform.
+The hosted demo runs in **safe mock mode**. No social account, credential, or signup is required: publishing adapters, OAuth flows, and the AI script provider are simulated, so the workflow can be evaluated without touching a live platform.
+
+It is also a **showcase deployment**: it runs on a serverless platform with no persistent database, so database-backed pages report a clear "database unavailable" state instead of sample data. The full local-first application — SQLite, FFmpeg, and the background worker — runs on a persistent runtime. This boundary is deliberate and is explained in [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ---
 
