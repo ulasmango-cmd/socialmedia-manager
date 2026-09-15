@@ -2,6 +2,8 @@
 
 SocialMedia Manager is organized as a local-first control room with a clear boundary between content generation, media processing, approval, and publishing.
 
+![Pipeline architecture](diagrams/architecture.svg)
+
 ## Flow
 
 1. A user creates a project from an idea.

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 810" width="960" height="810" role="img" aria-label="SocialMedia Manager pipeline architecture">
+  <title>SocialMedia Manager — pipeline architecture</title>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a7a68"/>
+    </marker>
+    <style>
+      .t  { font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .m  { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+      .lbl { font-size: 15px; font-weight: 600; fill: #ece4d9; }
+      .det { font-size: 11.5px; fill: #9d9186; }
+      .box { fill: #1c1815; stroke: #332b24; stroke-width: 1.5; }
+      .rail { font-size: 12.5px; fill: #9d9186; }
+    </style>
+  </defs>
+
+  <rect width="960" height="810" fill="#14110e"/>
+
+  <text x="50" y="50" class="t" font-size="24" font-weight="700" fill="#ece4d9">SocialMedia Manager</text>
+  <text x="50" y="76" class="t" font-size="13" fill="#9d9186">Idea to published post, with a human decision in the middle</text>
+
+  <!-- ============ main pipeline ============ -->
+
+  <rect x="50" y="110" width="480" height="58" rx="6" class="box"/>
+  <text x="70" y="136" class="t lbl">Idea</text>
+  <text x="70" y="154" class="t det">A prompt or topic, with duration, aspect ratio and visual style</text>
+
+  <line x1="290" y1="168" x2="290" y2="198" stroke="#8a7a68" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="200" width="480" height="58" rx="6" class="box"/>
+  <text x="70" y="226" class="t lbl">Script and scene plan</text>
+  <text x="70" y="244" class="t det">Structured scenes: narration, on-screen text, visual prompt, duration</text>
+
+  <line x1="290" y1="258" x2="290" y2="288" stroke="#8a7a68" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="290" width="480" height="58" rx="6" class="box"/>
+  <text x="70" y="316" class="t lbl">Per-scene media</text>
+  <text x="70" y="334" class="t det">Stock footage, generated art, or generative clips — one asset per scene</text>
+
+  <line x1="290" y1="348" x2="290" y2="378" stroke="#8a7a68" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="380" width="480" height="58" rx="6" class="box"/>
+  <text x="70" y="406" class="t lbl">FFmpeg render</text>
+  <text x="70" y="424" class="t det">MP4 + subtitles + thumbnail + render manifest, written to the media root</text>
+
+  <line x1="290" y1="438" x2="290" y2="468" stroke="#8a7a68" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="470" width="480" height="58" rx="6" fill="#241a0f" stroke="#e8a33d" stroke-width="2"/>
+  <text x="70" y="496" class="t lbl" fill="#f0b455">Approval gate</text>
+  <text x="70" y="514" class="t det" fill="#c2a882">Nothing publishes until a person approves this project</text>
+
+  <line x1="290" y1="528" x2="290" y2="558" stroke="#8a7a68" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="560" width="480" height="92" rx="6" class="box"/>
+  <text x="70" y="585" class="t lbl">Platform adapters</text>
+  <rect x="70" y="598" width="140" height="34" rx="4" fill="#20262b" stroke="#3a4650"/>
+  <text x="140" y="619" class="t det" text-anchor="middle" fill="#9fc4e0">Facebook Pages</text>
+  <rect x="220" y="598" width="140" height="34" rx="4" fill="#20262b" stroke="#3a4650"/>
+  <text x="290" y="619" class="t det" text-anchor="middle" fill="#9fc4e0">Instagram</text>
+  <rect x="370" y="598" width="140" height="34" rx="4" fill="#20262b" stroke="#3a4650"/>
+  <text x="440" y="619" class="t det" text-anchor="middle" fill="#9fc4e0">YouTube</text>
+
+  <line x1="290" y1="652" x2="290" y2="686" stroke="#8a7a68" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="688" width="480" height="58" rx="6" class="box"/>
+  <text x="70" y="714" class="t lbl">Publication records</text>
+  <text x="70" y="732" class="t det">One row per platform: independent status, idempotency key, retry of failures only</text>
+
+  <!-- ============ side panel: worker ============ -->
+
+  <rect x="560" y="110" width="350" height="636" rx="6" fill="#191512" stroke="#332b24" stroke-width="1.5"/>
+  <text x="580" y="140" class="t lbl">Worker</text>
+  <text x="580" y="160" class="t det">A long-lived Node process</text>
+
+  <rect x="580" y="176" width="310" height="46" rx="5" fill="#1c1815" stroke="#332b24"/>
+  <text x="596" y="196" class="t lbl" font-size="13">Job queue</text>
+  <text x="596" y="212" class="t det">Claim, run, record attempts</text>
+
+  <rect x="580" y="232" width="310" height="46" rx="5" fill="#1c1815" stroke="#332b24"/>
+  <text x="596" y="252" class="t lbl" font-size="13">Scheduler</text>
+  <text x="596" y="268" class="t det">Time slots per account, per timezone</text>
+
+  <rect x="580" y="288" width="310" height="46" rx="5" fill="#1c1815" stroke="#332b24"/>
+  <text x="596" y="308" class="t lbl" font-size="13">Autopilot</text>
+  <text x="596" y="324" class="t det">Topic bank, variants, scoring, promotion</text>
+
+  <text x="580" y="368" class="t" font-size="12.5" font-weight="600" fill="#c2a882">Safety rails</text>
+  <circle cx="588" cy="388" r="2.5" fill="#74c46a"/>
+  <text x="600" y="392" class="rail">Daily caps and minimum gaps</text>
+  <circle cx="588" cy="410" r="2.5" fill="#74c46a"/>
+  <text x="600" y="414" class="rail">Quiet hours, per-account pause</text>
+  <circle cx="588" cy="432" r="2.5" fill="#74c46a"/>
+  <text x="600" y="436" class="rail">Duplicate-content guard</text>
+  <circle cx="588" cy="454" r="2.5" fill="#74c46a"/>
+  <text x="600" y="458" class="rail">Failure circuit breaker</text>
+  <circle cx="588" cy="476" r="2.5" fill="#74c46a"/>
+  <text x="600" y="480" class="rail">Approval gate before every publish</text>
+
+  <line x1="580" y1="504" x2="890" y2="504" stroke="#332b24" stroke-width="1"/>
+
+  <text x="580" y="528" class="t" font-size="12.5" font-weight="600" fill="#c2a882">Partial failure</text>
+  <text x="580" y="550" class="t det">A publish fans out to three adapters.</text>
+  <text x="580" y="568" class="t det">Each records its own outcome, so one</text>
+  <text x="580" y="586" class="t det">failure never invalidates a success.</text>
+  <text x="580" y="604" class="t det">A retry re-runs only the platforms</text>
+  <text x="580" y="622" class="t det">that failed, never the ones that</text>
+  <text x="580" y="640" class="t det">already succeeded.</text>
+
+  <line x1="580" y1="664" x2="890" y2="664" stroke="#332b24" stroke-width="1"/>
+
+  <text x="580" y="690" class="t" font-size="12.5" font-weight="600" fill="#c2a882">Deployment shapes</text>
+  <text x="580" y="712" class="t det">Hosted showcase — serverless, mock</text>
+  <text x="580" y="728" class="t det">providers, read-only output snapshot.</text>
+
+  <text x="50" y="784" class="t det">Full runtime — persistent Node process, FFmpeg, database and worker. Required to render or publish for real.</text>
+</svg>

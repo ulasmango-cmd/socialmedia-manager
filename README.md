@@ -81,15 +81,7 @@ The product is local-first: the studio, the database, the media pipeline, and th
 
 ## Architecture
 
-```text
-Idea
-  -> script and scene generation
-  -> per-scene media assets (art / stock / generated clips)
-  -> FFmpeg render  ->  MP4 + subtitles + thumbnail + manifest
-  -> approval gate
-  -> platform adapters (Facebook Pages | Instagram | YouTube)
-  -> independent publication records + partial-failure retry
-```
+![Pipeline architecture — idea to published post, with the worker and its safety rails](diagrams/architecture.svg)
 
 A single worker owns jobs, the scheduler, and the autopilot. Publishing is modelled as explicit state transitions with one record per platform, so a failure on one platform never invalidates a success on another.
 
