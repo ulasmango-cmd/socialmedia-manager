@@ -125,4 +125,6 @@ Built by **Flamur** ([@ulasmango-cmd](https://github.com/ulasmango-cmd)).
 
 ## License
 
-The production implementation is private and proprietary. This repository contains documentation, screenshots, and project presentation material only. All rights reserved.
+All rights reserved — see [LICENSE](LICENSE).
+
+The production implementation is private and proprietary. This repository contains documentation, screenshots, and project presentation material only.
