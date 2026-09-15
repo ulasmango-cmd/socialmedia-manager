@@ -4,7 +4,7 @@
 
 ## Live Demo
 
-[Open the live demo](https://socialmedia-manager-eight.vercel.app)
+[Open the live demo](https://socialmedia-manager-demo.vercel.app)
 
 The hosted demo runs in safe mock mode. External publishing credentials are not included in the public deployment.
 
