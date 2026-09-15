@@ -20,7 +20,7 @@
 
 The hosted demo runs in **safe mock mode**. No social account, credential, or signup is required: publishing adapters, OAuth flows, and the AI script provider are simulated, so the workflow can be evaluated without touching a live platform.
 
-It is also a **showcase deployment**: it runs on a serverless platform with no persistent database, so database-backed pages report a clear "database unavailable" state instead of sample data. The full local-first application — SQLite, FFmpeg, and the background worker — runs on a persistent runtime. This boundary is deliberate and is explained in [ARCHITECTURE.md](ARCHITECTURE.md).
+It also ships a **read-only snapshot of real pipeline output** — 20 projects, the MP4s and thumbnails FFmpeg produced for them, their scene plans, and the topic bank. The review, queue, library, and topic workflows can therefore be explored against actual content rather than empty screens. Rendering new video and publishing to live platforms require the full local-first runtime (FFmpeg, a persistent database, and the worker); see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ---
 
