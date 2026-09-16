@@ -75,6 +75,7 @@ The product is local-first: the studio, the database, the media pipeline, and th
 - **Autopilot growth engine** — topic bank → variant generation → scoring → promotion → content queue → scheduled publishing, in modes from `off` through `suggest_only` and `review_required` up to `full_auto`.
 - **Safety rails** — daily caps, minimum gaps, quiet hours, per-account pause switches, a duplicate-content guard, a failure circuit breaker, and an approval gate before every publish.
 - **Mock mode** — the entire workflow runs with zero credentials, including simulated publishing failures so retry logic can be exercised deliberately.
+- **In-app provider configuration** — Kaggle GPU, Pexels, the AI text provider, TTS, and Agnes keys are set from a Settings panel rather than by hand-editing `.env`. Values are encrypted at rest, never returned to the browser, fall back to the environment when blank, and the write path is restricted to localhost.
 
 ---
 
