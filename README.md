@@ -18,6 +18,16 @@
 
 ### ▶ [https://socialmedia-manager-eight.vercel.app](https://socialmedia-manager-eight.vercel.app)
 
+Jump straight in:
+
+| | |
+| :--- | :--- |
+| **[Reactor showroom](https://socialmedia-manager-eight.vercel.app/showroom)** | The public-facing product surface — hero, model showcase, pricing |
+| **[Studio dashboard](https://socialmedia-manager-eight.vercel.app/studio)** | The working control room, populated with real pipeline output |
+| **[Library](https://socialmedia-manager-eight.vercel.app/videos)** | Every project and its rendered MP4, thumbnail and subtitles |
+| **[Gallery](https://socialmedia-manager-eight.vercel.app/showroom/gallery)** | Rendered output alongside the concept demos |
+| **[Topic bank](https://socialmedia-manager-eight.vercel.app/topics)** | What the autopilot draws ideas from |
+
 The hosted demo runs in **safe mock mode**. No social account, credential, or signup is required: publishing adapters, OAuth flows, and the AI script provider are simulated, so the workflow can be evaluated without touching a live platform.
 
 It also ships a **read-only snapshot of real pipeline output** — 20 projects, the MP4s and thumbnails FFmpeg produced for them, their scene plans, and the topic bank. The review, queue, library, and topic workflows can therefore be explored against actual content rather than empty screens. Rendering new video and publishing to live platforms require the full local-first runtime (FFmpeg, a persistent database, and the worker); see [ARCHITECTURE.md](ARCHITECTURE.md).
@@ -65,6 +75,25 @@ The product is local-first: the studio, the database, the media pipeline, and th
 - **Autopilot growth engine** — topic bank → variant generation → scoring → promotion → content queue → scheduled publishing, in modes from `off` through `suggest_only` and `review_required` up to `full_auto`.
 - **Safety rails** — daily caps, minimum gaps, quiet hours, per-account pause switches, a duplicate-content guard, a failure circuit breaker, and an approval gate before every publish.
 - **Mock mode** — the entire workflow runs with zero credentials, including simulated publishing failures so retry logic can be exercised deliberately.
+
+---
+
+## Modules
+
+The application is organised into modules. Each one is reachable in the live demo, so the table doubles as a map of what to look at.
+
+| Module | What it does | Open it |
+| :--- | :--- | :--- |
+| **Generation studio** | Turns a prompt or idea into a structured script and a scene plan | [showroom/generate](https://socialmedia-manager-eight.vercel.app/showroom/generate) |
+| **Render pipeline** | FFmpeg render to MP4, subtitles, thumbnail and a render manifest, with per-scene visual styles | [studio](https://socialmedia-manager-eight.vercel.app/studio) |
+| **Series mode** | A character bible with locked identity seeds, so episodes stay visually consistent | [studio](https://socialmedia-manager-eight.vercel.app/studio) |
+| **Library** | Every project and media asset, with the rendered output | [videos](https://socialmedia-manager-eight.vercel.app/videos) |
+| **Approval** | The human gate between rendering and publishing — nothing ships without it | [studio](https://socialmedia-manager-eight.vercel.app/studio) |
+| **Publishing** | Facebook Pages, Instagram and YouTube adapters, each recording an independent outcome | [queue](https://socialmedia-manager-eight.vercel.app/queue) |
+| **Queue and scheduler** | Per-account time slots and timezones, with pause and retry controls | [queue](https://socialmedia-manager-eight.vercel.app/queue) |
+| **Autopilot** | Topic bank to variant generation to scoring to promotion, constrained by the safety rails | [topics](https://socialmedia-manager-eight.vercel.app/topics) |
+| **Connections** | OAuth accounts, token health and per-account state | [settings/connections](https://socialmedia-manager-eight.vercel.app/settings/connections) |
+| **Activity** | Job history and the audit trail of what ran and what it produced | [activity](https://socialmedia-manager-eight.vercel.app/activity) |
 
 ---
 
